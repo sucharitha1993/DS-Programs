@@ -1,0 +1,62 @@
+<html>
+
+<head></head>
+
+<body>
+    <script>
+        /* Longest Word  */
+        /**
+         * Instructions to candidate.
+         *  1) Given a a string of letters and a dictionary, the function longestWord should
+         *     find the longest word or words in the dictionary that can be made from the letters
+         *     Input: letters = "oet", dictionary = {"to","toe","toes"}
+         *     Output: {"toe"}
+         *     Only lowercase letters will occur in the dictionary and the letters
+         *     The length of letters will be between 1 and 10 characters
+         *     The solution should work well for a dictionary of over 100,000 words
+         *  2) Run this code in the REPL to observe its behaviour.
+         *  3) Consider adding some additional tests in doTestsPass().
+         *  4) Implement the longestWord() method correctly.
+         *  5) If time permits, introduce '?' which can represent any letter.  "to?" could match to "toe", "ton" etc
+         */
+
+        function longestWord() {
+            const dictionary = ["to", "toe", "toes"];
+            var fn = function (chars) {
+                var result = [];
+                if (chars.length == 1) return chars;
+                for (var k in chars) {
+                    var char = chars[k];
+                    fn(chars.join('').replace(char, '').split('')).concat("").map(function (item) {
+                        result.push([char].concat(item));
+                    });
+                }
+                return result;
+            };
+            const combinations = fn("ote".split('')).map(function (str) {
+                return str.join('')
+            });
+            let maxLength = 0;
+            let matchStr = null;
+            let index = -1;
+            for (let i = 0; i < combinations.length; i++) {
+                index = dictionary.findIndex((rec)=> {
+                    return rec == combinations[i];
+                });
+                if(index !== -1) {
+                    if(combinations[i].length > maxLength) {
+                        maxLength = combinations[i].length;
+                        matchStr = combinations[i];
+                    }
+                }
+            }
+            console.log(matchStr);
+
+
+        }
+
+        longestWord();
+    </script>
+</body>
+
+</html>

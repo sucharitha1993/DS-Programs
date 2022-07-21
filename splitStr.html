@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        function splitStrings(str, dl) {
+            let word = "";
+            let allWords = [];
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] !== dl) {
+                    word += str[i]
+                } else {
+                    allWords.push(word);
+                    word = "";
+                }
+            }
+            allWords.push(word);
+            return allWords;
+
+        }
+
+        // Driver program to test above
+        var str = "geeks;for;geeks";
+        var dl = ';';
+        var res = splitStrings(str, dl);
+        res.forEach(word => document.write(word + '<br/>'));
+
+    </script>
+
+</body>
+
+</html>

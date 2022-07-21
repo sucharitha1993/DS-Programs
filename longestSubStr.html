@@ -1,0 +1,22 @@
+<html>
+
+<body>
+    <script>
+        function longestSubStr(str) {
+            let uniqueSubStr = "", maxLength = 0;
+            for (let i = 0; i < str.length; i++) {
+                let pos = uniqueSubStr.indexOf(str[i])
+                if (pos > -1) {
+                    uniqueSubStr = uniqueSubStr.substr(pos + 1)
+                }
+                uniqueSubStr += str[i];
+                maxLength = Math.max(uniqueSubStr.length, maxLength);
+            }
+            return maxLength;
+        }
+
+        console.log(longestSubStr("thequickbrownfoxjumpsoveralazydog"));
+    </script>
+</body>
+
+</html>

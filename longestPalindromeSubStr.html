@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <script>
+        function longestPalindrome(str) {
+            str = str.split(" ");
+            revStr = "";
+            palindromeArr = [];
+            for (let i = 0; i < str.length; i++) {
+                for (let j = str[i].length - 1; j >= 0; j--) {
+                    revStr += str[i][j]
+                }
+                if (revStr == str[i]) {
+                    palindromeArr.push({ key: str[i], count: str[i].length });
+                }
+                revStr = "";
+            }
+            let obj = palindromeArr.sort((a, b) => b.count - a.count)[0];
+            return obj;
+        }
+
+        console.log(
+            longestPalindrome("nan noon is redder")
+        );
+    </script>
+
+</body>
+
+</html>

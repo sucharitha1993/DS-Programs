@@ -1,0 +1,36 @@
+<html>
+
+<body>
+    <script>
+        function revStr() {
+            var str = 'abcd';
+            var reversedStr = '';
+            for (let i = str.length - 1; i >= 0; i--) {
+                reversedStr += str[i];      
+            }
+            console.log(reversedStr);
+        }
+        revStr()
+        var x = 10;
+
+        function Test() {
+
+            function abc() {
+                console.log(this.x);
+            }
+
+            return {
+                x: 100,
+                show: function () {
+                    console.log(this.x);
+                    abc();
+                },
+            };
+
+        }
+
+        Test().show();
+    </script>
+</body>
+
+</html>

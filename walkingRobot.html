@@ -1,0 +1,34 @@
+<html>
+
+<head></head>
+
+<body>
+    <script>
+        // Implement the 'walk' method. This method takes in a string, path,
+        //    where each character in the string corresponds to a potential movement
+        //    of the robot. The robot can move up, down, left, and right represented
+        //    by the characters 'U', 'D', 'L', and 'R' respectively. All other
+        //    characters may be ignored. Assume the robot's initial position
+        //    is at (0,0). The output of this method is the robot's final x and y
+        //    coordinates relative to the initial position.
+        function walkingRobo(str) {
+            let x = 0;
+            let y = 0;
+            for (let i = 0; i < str.length; i++) {
+                if (str[i].toUpperCase() == 'U') {
+                    y++;
+                } else if (str[i].toUpperCase() == 'D') {
+                    y--;
+                } else if (str[i].toUpperCase() == 'L') {
+                    x--;
+                } else if (str[i].toUpperCase() == 'R') {
+                    x++;
+                }
+            }
+            return [x, y];
+        }
+        console.log(walkingRobo('ULLLDUDUURLRLR'));
+    </script>
+</body>
+
+</html>

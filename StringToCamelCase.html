@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        function convertToCamelCase(str) {
+            camelCaseStr = "";
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] == " ") {
+                    if (str[i + 1] !== " ") { //to check next character is not space (extra spaces) before appending to camelCase
+                        camelCaseStr += str[i + 1].toUpperCase();
+                        i++;
+                    }
+                } else {
+                    camelCaseStr += str[i]
+                }
+            }
+            return camelCaseStr;
+
+        }
+        var str = "I get    intern     at geeksforgeeks";
+        document.write(convertToCamelCase(str));
+
+    </script>
+
+</body>
+
+</html>

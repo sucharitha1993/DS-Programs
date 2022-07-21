@@ -1,0 +1,85 @@
+<html>
+  <body>
+    <script>
+      function sumOfTwoObj(arr1, arr2) {
+        a = "";
+        b = "";
+        for (let i of arr1) {
+          a += i;
+        }
+        for (let i of arr2) {
+          b += i;
+        }
+        return Number(a) + Number(b);
+      }
+      console.log(sumOfTwoObj([1, 2, 3], [4, 5, 6]));
+
+      function runlengthCode(str) {
+        let encodedStr = "";
+        count = 1;
+        for (let i = 0; i < str.length; i++) {
+          if (str[i] == str[i + 1]) {
+            count++;
+          } else {
+            encodedStr += str[i] + count;
+            count = 1;
+          }
+        }
+        return encodedStr;
+      }
+      console.log(runlengthCode("aabbcdeef"));
+
+      function uniqueCharacter(str) {
+        for (let i = 0; i < str.length; i++) {
+          if (str.indexOf(str[i]) == str.lastIndexOf(str[i])) {
+            return str[i];
+          }
+        }
+        return -1;
+      }
+      console.log(uniqueCharacter("abcdcda"));
+
+      function longestCharSeq(str) {
+        // this logic needs fix
+        longCharSeq = "";
+        count = 1;
+        for (let i = 0; i < str.length; i++) {
+          if (str[i] == str[i + 1]) {
+            count++;
+          } else {
+            charIndex = longCharSeq.indexOf(str[i]);
+            if (charIndex > -1) {
+              if (count > Number(longCharSeq[charIndex - 1])) {
+                longCharSeq = longCharSeq.substr(
+                  charIndex + 1,
+                  longCharSeq.length
+                );
+                longCharSeq += count + str[i];
+              }
+            } else {
+              longCharSeq += count + str[i];
+            }
+          }
+        }
+        return longCharSeq;
+      }
+      console.log(longestCharSeq("aabccaaaddcccc"));
+
+      function longestCharSequence(str) {
+        let charSeq = [];
+        let count = 1;
+        for (let i = 0; i < str.length; i++) {
+          if (str[i] == str[i + 1]) {
+            count++;
+          } else {
+            charSeq.push({ char: str[i], count: count });
+            count = 1;
+          }
+        }
+        let longestChar = charSeq.sort((a, b) => b.count - a.count)[0];
+        return [longestChar.char, longestChar.count];
+      }
+      console.log(longestCharSequence("aabccaaaddcccc"));
+    </script>
+  </body>
+</html>

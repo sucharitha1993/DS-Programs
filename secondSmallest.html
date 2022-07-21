@@ -1,0 +1,41 @@
+<html>
+
+<body>
+    <div id='demo'></div>
+    <script>
+        function secondSmallest() {
+            const numbers = [1, 12, 3, 14, 10, 15];
+            numbers.sort((a, b) => a - b);
+            // numbers.sort((a, b) => b - a); //largest
+            console.log(numbers);
+            console.log(numbers[1]);
+            document.getElementById("demo").innerHTML = numbers[1];
+        }
+        function secondSmallestUsingMath() {
+            const arr = [14, 58, 20, 77, 66, 82, 42, 67, 42, 4]
+            const min = Math.min(...arr);
+            arr.splice(arr.indexOf(min), 1);
+            console.log(Math.min(...arr))
+        }
+        function arrbubbleSort() {
+            var sorted = false;
+            const a = [1, 12, 3, 14, 10, 15];
+            while (!sorted) {
+                sorted = true;
+                for (let i = 0; i < a.length; i++) {
+                    if (a[i] > a[i + 1]) {
+                        sorted = false;
+                        temp = a[i];
+                        a[i] = a[i + 1];
+                        a[i + 1] = temp;
+                    }
+                }
+            }
+            console.log(a);
+        }
+        arrbubbleSort();
+        //secondSmallest();
+    </script>
+</body>
+
+</html>
