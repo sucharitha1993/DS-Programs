@@ -3,6 +3,21 @@
 <body>
     <div id='demo'></div>
     <script>
+        function secondLargest() {
+            const array = [32, 523, 5632, 920, 6000];
+            let largestNum = array[0];
+            let secondLargestNum = 0;
+            for (let i = 1; i < array.length; i++) {
+                if (array[i] > largestNum) {
+                    secondLargestNum = largestNum;
+                    largestNum = array[i];
+                }
+                else if (array[i] !== largestNum && array[i] > secondLargestNum) {
+                    secondLargestNum = array[i];
+                }
+            };
+            console.log(secondLargestNum);
+        }
         function secondSmallest() {
             const numbers = [1, 12, 3, 14, 10, 15];
             numbers.sort((a, b) => a - b);

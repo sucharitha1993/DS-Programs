@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <script>
+        function solution(N, K) {
+            let res = N.toString();
+            let result = '';
+            for (let i =0;i<3;i++) {
+                let dum = Number(res[i]);
+                while (dum != 9) {
+                    if (K == 0) {
+                        break;
+                    } else {
+                        dum += 1
+                        K -= 1
+                    }
+                }
+                
+                result +=dum.toString();
+            }
+            return result;
+        }
+        console.log(solution(512, 10));
+
+    </script>
+
+
+</body>
+
+</html>

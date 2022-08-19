@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+let packages = [{package: "A", dependencies: ["B", "C", "D"]} , 
+ {package: "B", dependencies: ["E", "F"]},
+ {package: "C", dependencies: ["D", "F"]},
+ {package: "E", dependencies: ["G", "F"]},
+];
+ let dependencies = [];
+
+// return list of dependecies for a given package X
+function install(X) {
+  let pckg = packages.filter(pck => pck.package === X)[0];
+  if (pckg) {
+    let pckgDepend = pckg.dependencies;
+    dependencies.push(pckgDepend);
+    if (pckgDepend && pckgDepend.length > 0) {
+    	for (let i of pckgDepend) { 
+        	install(i);
+        } 
+    }
+  }
+  console.log(dependencies);
+  return dependencies;
+}
+console.log(install("A"));
+</script>
+
+</body>
+</html> 

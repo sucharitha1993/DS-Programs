@@ -11,7 +11,6 @@ function compareUserData(oldData, newData, result) {
             compareUserData(oldData[k], newData[k], this);
         }
     }, result);
-
     return result;
 }
 

@@ -1,0 +1,35 @@
+<html>
+
+<body>
+    <script>
+        function perfectSubstring(s, k) {
+            let array = s.split("");
+            let count = 0;
+            for (let start = 0; start < array.length - 1; start++) {
+                let newMap = new Map();
+                let startElement = array[start];
+                newMap.set(startElement, 1);
+                for (let end = start + 1; end < array.length; end++) {
+                    let element = array[end];
+                    if (newMap.get(element)) {
+                        newMap.set(element, newMap.get(element) + 1);
+                    } else {
+                        newMap.set(element, 1);
+                    }
+                    let flag = [...newMap.values()].some(ele => {
+                        if (ele != k) {
+                            return true;
+                        }
+                    });
+                    if (!flag) {
+                        count++;
+                    }
+                }
+            }
+            return count
+        }
+        console.log(perfectSubstring("1020122", 2));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <script>
+
+        function solution(A) {
+            let arr = new Set(A);
+            arr.sort();
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i + 1] - arr[i] == 1) {
+                    return true
+                }
+                return false
+            }
+        }
+        console.log(solution([4, 3]));
+
+    </script>
+
+
+</body>
+
+</html>

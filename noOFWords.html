@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <script>
+        var str = "How many eggs are in a half-dozen, 13";
+        var words = str.split(" ");
+        let pureWords = [];
+        for (var i = 0; i < words.length - 1; i++) {
+            if (words[i].match(/^([^0-9]*)$/
+            )) {
+                pureWords.push(words[i]);
+            }
+        }
+        console.log(pureWords);
+
+    </script>
+</body>
+
+</html>
