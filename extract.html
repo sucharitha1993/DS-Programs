@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <script>
+
+        let newArr = [];
+
+        function extract(arr) {
+            // return arr.flat(Infinity); //using predefined method
+            for (let i of arr) {
+                if (typeof i !== "object") {
+                    newArr.push(i);
+                } else {
+                    extract(i)
+                }
+            }
+
+            return newArr;
+        }
+
+        console.log(extract([1, 2, [3, 4, [5, 6]]]));
+
+
+
+
+    </script>
+
+</body>
+
+</html>
