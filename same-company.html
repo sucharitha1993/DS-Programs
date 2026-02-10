@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <script>
+    let attendees = {
+      "Alice": "Google",
+      "Suchi": "PS",
+      "Kanny": "Pipra",
+      "Srini": "PS",
+      "Pandu": "Pipra",
+      "Aadhya": "Google"
+    }
+    let companies = [];
+
+    function getAttendees(attendees) {
+
+      let attendeeList = [];
+
+      for (let i in attendees) {
+        if (companies.indexOf(attendees[i]) === -1) {
+          companies.push(attendees[i]);
+        }
+      }
+      console.log(companies);
+
+      for (let company of companies) {
+        let sameComList = [];
+        for (let i in attendees) {
+          if (company === attendees[i]) {
+            sameComList.push(i);
+          }
+        }
+        attendeeList.push(sameComList);
+      }
+      console.log(attendeeList);
+    }
+
+    getAttendees(attendees)
+
+//o/p :  [[Alice, Aadhya], [Suchi, Srini], [Kanny, Pandu]]
+  </script>
+</body>
+
+</html>
